@@ -1,0 +1,29 @@
+name: Update Formula
+
+on:
+  repository_dispatch:
+    types: [update-formula]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update formula
+        env:
+          VERSION: ${{ github.event.client_payload.version }}
+          SHA256: ${{ github.event.client_payload.sha256 }}
+        run: |
+          sed -i "s|url \".*\"|url \"https://github.com/yncyrydybyl/manifestor/archive/refs/tags/v${VERSION}.tar.gz\"|" Formula/manifestor.rb
+          sed -i "s|sha256 \".*\"|sha256 \"${SHA256}\"|" Formula/manifestor.rb
+          echo "Updated to v${VERSION} (sha256: ${SHA256})"
+          cat Formula/manifestor.rb
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Formula/manifestor.rb
+          git commit -m "manifestor v${{ github.event.client_payload.version }}"
+          git push
