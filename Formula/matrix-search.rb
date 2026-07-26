@@ -1,7 +1,7 @@
 class MatrixSearch < Formula
   desc "Full-text search for Matrix chat: index, search, and a chat bot"
   homepage "https://github.com/yncyrydybyl/matrix-search-reloaded"
-  version "0.3.0"
+  # version is parsed from the release tarball filename
   license "AGPL-3.0-or-later"
 
   # Prebuilt Linux x86_64 binary. It statically links OpenSSL (portable across
