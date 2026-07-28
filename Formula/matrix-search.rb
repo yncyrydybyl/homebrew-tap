@@ -9,8 +9,8 @@ class MatrixSearch < Formula
   # the binary is hosted on this public tap for token-free installs.
   on_linux do
     on_intel do
-      url "https://github.com/yncyrydybyl/homebrew-tap/releases/download/v0.3.3/matrix-search-v0.3.3-x86_64-linux.tar.gz"
-      sha256 "652db819c8d23b37b102d56c6ec87402a722e0378f67b5f60fd7c9a81c9b630b"
+      url "https://github.com/yncyrydybyl/homebrew-tap/releases/download/v0.3.4/matrix-search-v0.3.4-x86_64-linux.tar.gz"
+      sha256 "847c5fde277a63da5305ab3b31738db902a6d382279185f4bb8ba202cf129352"
     end
   end
 
